@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 09:17:10 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/11 14:36:27 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 09:20:10 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_putstr_pf(char *s, t_form *form)
 	int i;
 
 	i = 0;
-	if (form->w_prec == 0)
+	if (form->w_prec == 0 && form->prec == 0)
 		form->w_prec = ft_strlen(s);
 	if (s)
 		while (form->w_prec > 0 && s[i])

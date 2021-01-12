@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 15:38:05 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/11 12:39:47 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/12 08:55:14 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void			ft_conv_u(t_form *form);
 void			ft_conv_x_min(t_form *form);
 void			ft_conv_x_maj(t_form *form);
 void			ft_conv_p(t_form *form);
+void			ft_putspace(t_form *form);
+void			ft_putzero(t_form *form);
 void			ft_putchar_pf(char c, t_form *form);
 void			ft_putstr_pf(char *s, t_form *form);
 void			ft_putnbr_pf(long int n, char *base, t_form *form);
