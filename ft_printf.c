@@ -6,11 +6,32 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 15:36:56 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/11 18:01:41 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 17:28:11 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_conv(char c, int i, t_form *form)
+{
+	if (c == 'c')
+		ft_conv_c(form);
+	else if (c == '%')
+		ft_conv_percent(form);
+	else if (c == 's')
+		ft_conv_s(form);
+	else if (c == 'd' || c == 'i')
+		ft_conv_di(form);
+	else if (c == 'u')
+		ft_conv_u(form);
+	else if (c == 'x')
+		ft_conv_x_min(form);
+	else if (c == 'X')
+		ft_conv_x_maj(form);
+	else if (c == 'p')
+		ft_conv_p(form);
+	return (i);
+}
 
 int		ft_prec(const char *str, int i, t_form *form)
 {
@@ -36,7 +57,7 @@ int		ft_prec(const char *str, int i, t_form *form)
 				i++;
 		}
 	}
-	i = ft_conv(str, i, form);
+	i = ft_conv(str[i], i, form);
 	return (i);
 }
 

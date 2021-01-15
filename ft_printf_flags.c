@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 08:46:31 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/12 09:01:10 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 15:48:46 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,31 @@ void	ft_putzero(t_form *form)
 		ft_putchar_pf('0', form);
 		form->width--;
 	}
+}
+
+int		ft_putsign(int x, t_form *form)
+{
+	if (x < 0)
+	{
+		ft_putchar_pf('-', form);
+		x = -x;
+	}
+	if (x > 0 && form->plus == 1)
+		ft_putchar_pf('+', form);
+	return (x);
+}
+
+void	ft_putprec(int intlen, t_form *form)
+{
+	while (form->w_prec > intlen)
+	{
+		ft_putchar_pf('0', form);
+		form->w_prec--;
+	}
+}
+
+void	ft_puthashtag(char *str, t_form *form)
+{
+	ft_putstr_pf(str, form);
+	form->width -= 2;
 }

@@ -1,4 +1,4 @@
-SRCS		= ft_printf_conv_ascii.c ft_printf_conv_int.c ft_printf_conv.c ft_printf_list.c ft_printf_put.c ft_printf_utils.c ft_printf.c ft_printf_flags.c
+SRCS		= ft_printf_conv_ascii.c ft_printf_conv_int.c ft_printf_list.c ft_printf_put.c ft_printf_utils.c ft_printf.c ft_printf_flags.c
 
 OBJS		= $(SRCS:.c=.o)
 

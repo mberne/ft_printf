@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 10:18:36 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/11 09:31:45 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 17:27:02 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ int	ft_intlen_base(long int n, char *base)
 	i = 0;
 	baselen = ft_strlen(base);
 	if (n <= 0)
-	{
 		n *= (-1);
-		i++;
-	}
 	while (n > 0)
 	{
 		n /= baselen;
@@ -54,4 +51,17 @@ int	check_define(void)
 		|| DEC != "0123456789")
 		return (-1);
 	return (0);
+}
+
+void	ft_compare(int x, int intlen, t_form *form)
+{
+	if (form->prec && form->w_prec == 0)
+	{
+		form->prec = 0;
+		form->zero = 0;
+	}
+	if (form->width && (x < 0 || (x > 0 && form->plus == 1)))
+		form->width -= ft_int_max(form->w_prec, intlen) + 1;
+	else if (form->width)
+		form->width -= ft_int_max(form->w_prec, intlen);
 }

@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 10:33:22 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/12 09:33:59 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 16:10:08 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,13 @@ void	ft_conv_s(t_form *form)
 			form->width -= ft_int_min(form->w_prec, ft_strlen(str));
 		else
 			form->width -= ft_strlen(str);
-		if (form->minus == 1)
-		{
-			ft_putstr_pf(str, form);
+		if (form->minus == 0 && form->zero == 0)
 			ft_putspace(form);
-		}
-		else if (form->minus == 0 && form->zero == 0)
-		{
-			ft_putspace(form);
-			ft_putstr_pf(str, form);
-		}
-		else if (form->minus == 0 && form->zero == 1)
-		{
+		if (form->minus == 0 && form->zero == 1)
 			ft_putzero(form);
-			ft_putstr_pf(str, form);
-		}
+		ft_putstr_pf(str, form);
+		if (form->minus == 1)
+			ft_putspace(form);
 	}
 	else
 		ft_putstr_pf(str, form);
