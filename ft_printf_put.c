@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 09:17:10 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/14 09:33:10 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 18:01:31 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_putnbr_pf(long int n, char *base, t_form *form)
 
 	i = n;
 	baselen = ft_strlen(base);
+	if (i == 0 && form->w_prec == 0)
+		return ;
 	if (i >= baselen)
 		ft_putnbr_pf(i / baselen, base, form);
 	ft_putchar_pf(base[i % baselen], form);

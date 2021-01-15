@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 09:56:25 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/15 17:25:14 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 18:01:45 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_conv_di(t_form *form)
 {
-	int x;
-	int intlen;
+	long int	x;
+	int			intlen;
 
 	x = va_arg(*(form->ap), int);
 	intlen = ft_intlen_base(x, DEC);
@@ -52,8 +52,6 @@ void	ft_conv_u(t_form *form)
 		form->width -= ft_int_max(form->w_prec, intlen);
 		if ((form->minus == 0 && form->zero == 0) || (form->w_prec >= intlen && form->minus == 0 && form->zero == 1))
 			ft_putspace(form);
-		if (form->hashtag)
-			ft_puthashtag("0x", form);
 		if (form->prec == 0 && form->minus == 0 && form->zero == 1)
 			ft_putzero(form);
 		ft_putprec(intlen, form);

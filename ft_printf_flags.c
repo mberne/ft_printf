@@ -6,13 +6,13 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 08:46:31 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/15 15:48:46 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/15 18:02:13 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putspace(t_form *form)
+void		ft_putspace(t_form *form)
 {
 	while (form->width > 0)
 	{
@@ -21,7 +21,7 @@ void	ft_putspace(t_form *form)
 	}
 }
 
-void	ft_putzero(t_form *form)
+void		ft_putzero(t_form *form)
 {
 	while (form->width > 0)
 	{
@@ -30,7 +30,7 @@ void	ft_putzero(t_form *form)
 	}
 }
 
-int		ft_putsign(int x, t_form *form)
+long int	ft_putsign(long int x, t_form *form)
 {
 	if (x < 0)
 	{
@@ -42,7 +42,7 @@ int		ft_putsign(int x, t_form *form)
 	return (x);
 }
 
-void	ft_putprec(int intlen, t_form *form)
+void		ft_putprec(int intlen, t_form *form)
 {
 	while (form->w_prec > intlen)
 	{
@@ -51,7 +51,7 @@ void	ft_putprec(int intlen, t_form *form)
 	}
 }
 
-void	ft_puthashtag(char *str, t_form *form)
+void		ft_puthashtag(char *str, t_form *form)
 {
 	ft_putstr_pf(str, form);
 	form->width -= 2;
