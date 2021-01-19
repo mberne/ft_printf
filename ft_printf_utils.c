@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 10:18:36 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/19 08:37:05 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/19 13:25:11 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int		ft_intlen_pointer(unsigned long long n, char *base)
 	baselen = ft_strlen(base);
 	if (n == 0)
 		return (1);
-	if (n < 0)
-		n *= (-1);
 	while (n > 0)
 	{
 		n /= baselen;

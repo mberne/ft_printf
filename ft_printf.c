@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 15:36:56 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/19 09:06:37 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/19 13:12:49 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int		ft_conv(char c, int i, t_form *form)
 		ft_conv_x_maj(form);
 	else if (c == 'p')
 		ft_conv_p(form);
+	else if (c == 'n')
+		*(va_arg(*(form->ap), int *)) = form->return_print;
 	return (i);
 }
 

@@ -3,12 +3,9 @@ SRCS		= ft_printf.c ft_printf_list.c ft_printf_conv_ascii.c ft_printf_conv_int.c
 
 OBJS		= $(SRCS:.c=.o)
 
-OBJSBONUS   = $(BONUS:.c=.o)
+HEADER		= ft_printf.h
 
 NAME		= libftprintf.a
-
-LIBFT		= libft
-LIBFT_FILE	= $(LIBFT)/libft.a
 
 CC			= gcc
 
@@ -16,24 +13,22 @@ RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
-.c.o:
-			$(CC) $(CFLAGS) -c -I libft $< -o $@
+.c.o:		$(HEADER)
+			$(CC) $(CFLAGS) -c $< -o ${<:.c=.o} -I
 
-$(NAME):	compile_lib $(OBJS)
-			ar rc $(NAME) $(OBJS)
+$(NAME):	$(OBJS)
+			$(MAKE) -C libft
+			cp libft/libft.a $(NAME)
+			ar rcs $(NAME) $?
 
-all:		$(NAME)
-
-compile_lib:
-			$(MAKE) -C $(LIBFT)
-			cp $(LIBFT_FILE) $(NAME)
+all bonus:	$(NAME)
 
 clean:
-			$(RM) $(OBJS) $(OBJSBONUS)
+			$(RM) $(OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all
 
-.PHONY:		all clean fclean re compile_lib
+.PHONY:		all bonus clean fclean re
