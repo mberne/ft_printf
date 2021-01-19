@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 10:33:22 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/15 16:10:08 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/19 09:01:13 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,31 @@
 
 void	ft_conv_c(t_form *form)
 {
-	if (form->width)
-	{
-		form->width -= 1;
-		if (form->minus == 1)
-		{
-			ft_putchar_pf(va_arg(*(form->ap), int), form);
-			ft_putspace(form);
-		}
-		else if (form->minus == 0 && form->zero == 0)
-		{
-			ft_putspace(form);
-			ft_putchar_pf(va_arg(*(form->ap), int), form);
-		}
-		else if (form->minus == 0 && form->zero == 1)
-		{
-			ft_putzero(form);
-			ft_putchar_pf(va_arg(*(form->ap), int), form);
-		}
-	}
-	else
-		ft_putchar_pf(va_arg(*(form->ap), int), form);
+	form->width -= 1;
+	if (form->width && form->minus == 0)
+		ft_putspace(form);
+	if (form->zero == 1)
+		ft_putzero(form);
+	ft_putchar_pf(va_arg(*(form->ap), int), form);
+	if (form->width && form->minus == 1)
+		ft_putspace(form);
 }
 
 void	ft_conv_percent(t_form *form)
 {
-	if (form->width)
+	form->width -= 1;
+	if (form->zero && form->minus == 0)
 	{
-		form->width -= 1;
-		if (form->minus == 1)
-		{
-			ft_putchar_pf('%', form);
-			ft_putspace(form);
-		}
-		else if (form->minus == 0 && form->zero == 0)
-		{
-			ft_putspace(form);
-			ft_putchar_pf('%', form);
-		}
-		else if (form->minus == 0 && form->zero == 1)
-		{
-			ft_putzero(form);
-			ft_putchar_pf('%', form);
-		}
+		form->w_prec = form->width;
+		form->width = 0;
 	}
-	else
-		ft_putchar_pf('%', form);
+	if (form->width && form->minus == 0)
+		ft_putspace(form);
+	if (form->zero == 1)
+		ft_putzero(form);
+	ft_putchar_pf('%', form);
+	if (form->width && form->minus == 1)
+		ft_putspace(form);
 }
 
 void	ft_conv_s(t_form *form)
@@ -74,14 +53,12 @@ void	ft_conv_s(t_form *form)
 			form->width -= ft_int_min(form->w_prec, ft_strlen(str));
 		else
 			form->width -= ft_strlen(str);
-		if (form->minus == 0 && form->zero == 0)
-			ft_putspace(form);
-		if (form->minus == 0 && form->zero == 1)
-			ft_putzero(form);
-		ft_putstr_pf(str, form);
-		if (form->minus == 1)
-			ft_putspace(form);
 	}
-	else
-		ft_putstr_pf(str, form);
+	if (form->width && form->minus == 0)
+		ft_putspace(form);
+	if (form->zero == 1)
+		ft_putzero(form);
+	ft_putstr_pf(str, form);
+	if (form->width && form->minus == 1)
+		ft_putspace(form);
 }

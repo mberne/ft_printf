@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 15:36:56 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/15 17:28:11 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/19 09:06:37 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		ft_conv(char c, int i, t_form *form)
 {
+	form->spec = c;
 	if (c == 'c')
 		ft_conv_c(form);
 	else if (c == '%')
@@ -91,30 +92,16 @@ int		ft_flags(const char *str, int i, t_form *form)
 	while (ft_strchr("0-# +", str[i]))
 	{
 		if (str[i] == '0')
-		{
 			form->zero = 1;
-			i++;
-		}
 		if (str[i] == '-')
-		{
 			form->minus = 1;
-			i++;
-		}
 		if (str[i] == '#')
-		{
 			form->hashtag = 1;
-			i++;
-		}
 		if (str[i] == ' ')
-		{
 			form->space = 1;
-			i++;
-		}
 		if (str[i] == '+')
-		{
 			form->plus = 1;
-			i++;
-		}
+		i++;
 	}
 	i = ft_width(str, i, form);
 	return (i);

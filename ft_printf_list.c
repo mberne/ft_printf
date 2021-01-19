@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 10:49:18 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/07 08:28:34 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/18 13:46:11 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,5 @@ void	init_struct(t_form *form, va_list *ap)
 	form->width = 0;
 	form->prec = 0;
 	form->w_prec = 0;
+	form->spec = 0;
 }

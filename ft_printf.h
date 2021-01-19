@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 15:38:05 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/15 17:12:47 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/19 08:36:04 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_form
 	int		prec;
 	int		w_prec;
 	int		return_print;
+	char	spec;
 }				t_form;
 
 int				ft_printf(const char *str,
@@ -43,7 +44,7 @@ int				ft_conv(char c, int i, t_form *form);
 void			ft_conv_c(t_form *form);
 void			ft_conv_percent(t_form *form);
 void			ft_conv_s(t_form *form);
-void			ft_compare(int x, int intlen, t_form *form);
+int				ft_compare(long long x, int intlen, t_form *form);
 void			ft_conv_di(t_form *form);
 void			ft_conv_u(t_form *form);
 void			ft_conv_x_min(t_form *form);
@@ -51,14 +52,13 @@ void			ft_conv_x_maj(t_form *form);
 void			ft_conv_p(t_form *form);
 void			ft_putspace(t_form *form);
 void			ft_putzero(t_form *form);
-int				ft_putsign(int x, t_form *form);
-void			ft_putprec(int intlen, t_form *form);
-void			ft_puthashtag(char *str, t_form *form);
+long int		ft_putsign(long int x, t_form *form);
 void			ft_putchar_pf(char c, t_form *form);
 void			ft_putstr_pf(char *s, t_form *form);
 void			ft_putnbr_pf(long int n, char *base, t_form *form);
 void			ft_putpointer(unsigned long long p, t_form *form);
 int				ft_intlen_base(long int n, char *base);
+int				ft_intlen_pointer(unsigned long long n, char *base);
 int				ft_int_max(int i, int j);
 int				ft_int_min(int i, int j);
 int				check_define(void);
