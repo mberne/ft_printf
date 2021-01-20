@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 15:38:05 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/19 08:36:04 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 13:48:59 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define DEC "0123456789"
 
 # include <stdarg.h>
+# include <stdio.h>
 # include "libft/libft.h"
 
 typedef struct	s_form

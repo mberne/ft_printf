@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 08:46:31 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/19 09:29:23 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 15:10:53 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ long int	ft_putsign(long int x, t_form *form)
 		ft_putchar_pf('-', form);
 		x = -x;
 	}
-	if (x > 0 && form->plus == 1)
+	else if (x >= 0 && form->plus == 1)
 		ft_putchar_pf('+', form);
-	else if (x > 0 && form->space == 1)
+	else if (x >= 0 && form->space == 1)
 		ft_putchar_pf(' ', form);
 	return (x);
 }
@@ -50,7 +50,7 @@ int			ft_compare(long long x, int intlen, t_form *form)
 
 	tmp = form->width;
 	if (form->width &&
-		(form->spec == 'p' || (ft_strchr("xX", form->spec) && form->hashtag)))
+		(form->spec == 'p' || (ft_strchr("xX", form->spec) && form->hashtag && x != 0)))
 		form->width -= ft_int_max(form->w_prec, intlen) + 2;
 	else if (form->width && (x < 0 || form->plus || form->space))
 		form->width -= ft_int_max(form->w_prec, intlen) + 1;
