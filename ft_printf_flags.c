@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 08:46:31 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/20 15:39:26 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/20 15:53:06 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ int			ft_compare(long long x, int intlen, t_form *form)
 	int tmp;
 
 	tmp = form->width;
-	if (form->width && ft_strchr("pxX", form->spec) && form->hashtag && x != 0)
+	if (form->width && (form->spec == 'p' ||
+		ft_strchr("xX", form->spec && form->hashtag && x != 0)))
 		form->width -= ft_int_max(form->w_prec, intlen) + 2;
 	else if (form->width && (x < 0 || form->plus || form->space))
 		form->width -= ft_int_max(form->w_prec, intlen) + 1;
