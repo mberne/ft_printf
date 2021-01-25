@@ -6,7 +6,7 @@
 /*   By: mberne <mberne@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 09:56:25 by mberne            #+#    #+#             */
-/*   Updated: 2021/01/20 15:19:13 by mberne           ###   ########lyon.fr   */
+/*   Updated: 2021/01/25 08:54:23 by mberne           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ void	ft_conv_p(t_form *form)
 	intlen = ft_compare(x, intlen, form);
 	if (form->width && form->minus == 0)
 		ft_putspace(form);
-	ft_putstr_pf("0x", form);
+	ft_putstr_fd("0x", 1);
+	form->return_print += 2;
 	if (form->prec)
 		ft_putzero(form);
 	if (intlen)
